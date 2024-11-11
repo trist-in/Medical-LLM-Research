@@ -108,4 +108,26 @@ for i,x_i in enumerate(inputs):
 
 print(context_vec_2)
 
+#Apply previous step 1 to all pairwise elements to compute the unnormalized attention score matrix:
+
+print("\n")
+
+attn_scores = torch.empty(6, 6)
+
+attn_scores = inputs @ inputs.T #The @ operator is shorthand for matrix multiplication in PyTorch
+print(attn_scores)
+
+#Normalize the rows to sum to 1
+print("\n")
+
+attn_weights = torch.softmax(attn_scores, dim=-1)
+print(attn_weights)
+
+
+all_context_vecs = attn_weights @ inputs
+print(all_context_vecs)
+
+print("Previous 2nd context vector:", context_vec_2)
+
+#3.4
 
