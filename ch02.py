@@ -1,4 +1,3 @@
-from importlib.metadata import version
-
-print("torch version: ", version("torch"))
-print("tiktoken version:", version("tiktoken"))
+import torch
+print(torch.cuda.is_available())  # Check if CUDA is available
+print(torch.version.cuda)         # Check the CUDA version PyTorch is usingnvidia-smi
